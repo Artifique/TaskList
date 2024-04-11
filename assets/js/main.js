@@ -49,10 +49,11 @@ $(document).ready(function(){
       $(".table tbody tr").each(function(){
           var isChecked = $(this).find('input[type="checkbox"]').is(":checked");
           var tableSize = $(".table tbody tr").length;
-          if(tableSize == 1){
-              alert('Tous les champs ne seront pas supprimés');
-          }
-          else if(isChecked){
+          // if(tableSize == 1){
+          //     alert('Tous les champs ne seront pas supprimés');
+          // }
+          // else 
+          if(isChecked){
               $(this).remove();
           }
       });
