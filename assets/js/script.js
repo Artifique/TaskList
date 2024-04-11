@@ -1,4 +1,4 @@
-// add hovered class to selected list item
+// ====== Addition de la classe hovered pour selectionner le contenu de li afin changer la couleur au survol ========
 let list = document.querySelectorAll(".navigation li");
 
 function activeLink() {
@@ -10,7 +10,7 @@ function activeLink() {
 
 list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
-// Menu Toggle
+// =============== Menu Toggle =====================
 let toggle = document.querySelector(".toggle");
 let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".main");

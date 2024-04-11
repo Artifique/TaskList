@@ -159,7 +159,7 @@ body {
   align-items: center;
   padding: 0 10px;
 }
-
+/* ================ Style pour ajouter l'icône du menu hamburger afin de l'utiliser pour une taille donnée =============*/
 .toggle {
   position: relative;
   width: 60px;
@@ -171,7 +171,9 @@ body {
   cursor: pointer;
 }
 
+/* ====================================== Fin menu toggle ============================================ */
 
+/* ===================================== Ajout du Logo ================================================ */
 .logo {
   position: relative;
   width: 150px;
@@ -189,14 +191,13 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-/* ======================= Carte pour le nombre de tâche ====================== */
+/* ======================================= Fin Logo ===================================================*/
+/* ======================= Carte pour le nombre de tâche et les tâches en cour ======================== */
 .cardBox {
   position: relative;
   width: 100%;
   padding: 20px;
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns:2fr 2fr;
   justify-content: space-between;
   
@@ -250,8 +251,8 @@ body {
 .cardBox .card:hover .iconBx {
   color: var(--white);
 }
-
-/* ================== Order Details List ============== */
+/*  ======================Fin du style des cartes pour le total de tâche et les tâches en cour ========== */
+/* ==================  Formulaire et Liste  ============== */
 .details {
   position: relative;
   width: 100%;
@@ -259,7 +260,7 @@ body {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 30px;
-  /* margin-top: 10px; */
+
 }
 .details .formulaire{
   position: relative;
@@ -360,6 +361,7 @@ body {
 .details .recentOrders table tr td:nth-child(3) {
   text-align: center;
 }
+/* ============== Style pour le changement de la couleur du bouton du statut en fonction de sa valeur ========== */
 .status.delivered {
   padding: 2px 4px;
   background: #8de02c;
@@ -368,22 +370,7 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
-.status.pending {
-  padding: 2px 4px;
-  background: #e9b10a;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.return {
-  padding: 2px 4px;
-  background: #f00;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
+
 .status.inProgress {
   padding: 2px 4px;
   background: #1795ce;
@@ -392,7 +379,7 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
-
+/* =================== Fin du style de changement de couleur ====================== */
 .recentCustomers {
   position: relative;
   display: grid;
@@ -436,6 +423,7 @@ body {
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
 }
+/* ===============================Fin du Style pour le formulaire et la liste =========== */
 
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {

@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  // Chargement des tâches sauvegardées au chargement de la page
+  //======== Chargement des tâches sauvegardées au chargement de la page ========
   loadTasks();
 
   $("#ajout").click(function(){
@@ -8,15 +8,6 @@ $(document).ready(function(){
       var date = $("#date").val();
       var priorite = $("#priorite").val();
       var statut = $("#statut").val();
-    //   $(".table tbody tr").last().after(
-    //       '<tr>' +
-    //           '<td><input type="checkbox" class="select-elmt"></td>' +
-    //           '<td>' + name + '</td>' +
-    //           '<td>' + date + '</td>' +
-    //           '<td>' + priorite + '</td>' +
-    //           '<td>' + statut + '</td>' +
-    //       '</tr>'
-    //   );
       if(statut=="En cour"){
         $(".table tbody tr").last().after(
             '<tr>' +
@@ -39,11 +30,11 @@ $(document).ready(function(){
             '</tr>'
         );
       }
-      // Sauvegarde des tâches dans le stockage local
+      //=========  Sauvegarde des tâches dans le stockage local =============
       saveTasks();
   });
 
-  // Sélection de toutes les checkbox
+  // ======= Sélection de toutes les checkbox ==========
   $("#select-all").click(function(){
       var isSelected = $(this).is(":checked");
       $(".table tbody tr").each(function(){
@@ -51,7 +42,7 @@ $(document).ready(function(){
       });
   });
 
-  // Suppression d'une tâche
+  //===================  Suppression d'une tâche ===========
   $("#sup").click(function(){
       $(".table tbody tr").each(function(){
           var isChecked = $(this).find('input[type="checkbox"]').is(":checked");
@@ -63,11 +54,11 @@ $(document).ready(function(){
               $(this).remove();
           }
       });
-      // Sauvegarde des tâches dans le stockage local après suppression
+      //===========  Sauvegarde des tâches dans le stockage local après suppression ==============
       saveTasks();
   });
 
-  // Fonction pour charger les tâches sauvegardées
+  //================  Fonction pour charger les tâches sauvegardées ====================
   function loadTasks() {
       var savedTasks = localStorage.getItem('tasks');
       if (savedTasks) {
@@ -75,13 +66,13 @@ $(document).ready(function(){
       }
   }
 
-  // Fonction pour sauvegarder les tâches dans le stockage local
+  //================  Fonction pour sauvegarder les tâches dans le stockage local ============
   function saveTasks() {
       var tasksHTML = $(".table tbody").html();
       localStorage.setItem('tasks', tasksHTML);
   }
  
-     // Compter le nombre de tâches en cour
+     //==========  Compter le nombre de tâches en cour =========
   function countEncourTasks() {
     var EncourTasksCount = 0;
     $(".table tbody tr").each(function(){
@@ -93,7 +84,7 @@ $(document).ready(function(){
     return EncourTasksCount;
 }
 
-// Utilisation de la fonction pour obtenir le nombre total de tâches 
+//==========  Utilisation de la fonction pour obtenir le nombre total de tâches =========
 var nbTachesEncour = countEncourTasks();
 console.log("Nombre de tâches en cour : " + nbTachesEncour);
 
@@ -104,7 +95,7 @@ function countTotalTasks() {
   });
   return TotalTasksCount;
 }
-// Utilisation de la fonction pour obtenir le nombre total de tâches 
+//========== Utilisation de la fonction pour obtenir le nombre total de tâches ==========
 var nbTachesTotal = countTotalTasks();
 console.log("Nombre total de tâches : " + nbTachesTotal);
 
