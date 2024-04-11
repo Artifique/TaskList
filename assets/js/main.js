@@ -60,7 +60,7 @@ $(document).ready(function(){
       saveTasks();
   });
 
-  //================  Fonction pour charger les tâches sauvegardées ====================
+  //================  Fonction pour charger les tâches sauvegardées =====================
   function loadTasks() {
       // Fonction pour charger les tâches sauvegardées dans le stockage local
       var savedTasks = localStorage.getItem('tasks');
