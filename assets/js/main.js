@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //======== Chargement des tâches sauvegardées au chargement de la page ========
-  loadTasks();
+  loadTasks(); 
 
   $("#ajout").click(function(){
       // Fonctionnalité pour ajouter une nouvelle tâche
