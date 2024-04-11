@@ -18,7 +18,7 @@
 <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-        <div class="navigation">
+        <div class="navigation" aria-label="navigation">
             <ul>
                 <li>
                     <a href="#">
@@ -34,7 +34,7 @@
                         <span class="icon">
                             <ion-icon name="eye-outline"></ion-icon>
                         </span>
-                        <span class="title">Affichage</span>
+                        <span class="title" aria-label="Affichage">Affichage</span>
                     </a>
                 </li>
                 <li>
@@ -42,7 +42,7 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">A Propos de Nous</span>
+                        <span class="title" aria-label="A Propos de Nous">A Propos de Nous</span>
                     </a>
                 </li>
 
@@ -56,7 +56,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <div class="logo">
-                    <img src="assets/imgs/tasklist.png" alt="">
+                    <img src="assets/imgs/tasklist.png" alt="logo">
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="cardName">Total des taches</div>
+                        <div class="cardName" aria-label="Total des tâches">Total des taches</div>
                         <div class="number1">
                             <script>
                                 // Définition de la fonction jQuery
@@ -95,7 +95,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="cardName">Taches en cour</div>
+                        <div class="cardName" aria-label="Total en cour">Taches en cour</div>
                         <div class="number2">
                             <script>
                                 // Définition de la fonction jQuery
@@ -135,7 +135,7 @@
             <!-- ================ Formulaire et Liste ================= -->
             <div class="details">
                 
-                <div class="formulaire">
+                <div class="formulaire" aria-label="formulaire">
                     <form action="#">
                         <input type="text" id="nom" placeholder="Ajouter une tâche"><br>
                         <input type="date" id="date" ><br>
@@ -150,7 +150,7 @@
 
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Liste des tâches</h2>
+                        <h2 aria-label="Liste des tâches">Liste des tâches</h2>
                         <a href="#" class="btn">Voir tout</a>
                     </div>
 
