@@ -137,11 +137,11 @@
                 
                 <div class="formulaire">
                     <form action="#">
-                        <input type="text" id="nom" placeholder="Ajouter une tâche"><br>
-                        <input type="date" id="date" ><br>
-                        <input type="text" id="priorite" placeholder="Ajouter une priorité"><br>
-                        <input type="text" id="statut" placeholder="Ajouter un status"><br>
-                        <button class="button" id="ajout">Ajouter</button>
+                        <input type="text" id="nom" placeholder="Ajouter une tâche" aria-label="Nom de la tâche">
+                        <input type="date" id="date" aria-label="Date d'échéance">
+                        <input type="text" id="priorite" placeholder="Ajouter une priorité" aria-label="Priorité de la tâche">
+                        <input type="text" id="statut" placeholder="Ajouter un statut" aria-label="Statut de la tâche">
+                        <button class="button" id="ajout" aria-label="Ajouter une tâche">Ajouter</button>
                     </form>
                 </div>
 
@@ -151,13 +151,12 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Liste des tâches</h2>
-                        <a href="#" class="btn">Voir tout</a> 
+                        <a href="#" class="btn" aria-label="Voir toutes les tâches">Voir tout</a>
                     </div>
-
                     <table class="table" >
                         <thead>
                             <tr>
-                                <th><input type="checkbox" id="select-all">Tous </th>
+                                <th><input type="checkbox" id="select-all" aria-label="Sélectionner toutes les tâches">Tous</th>
                                 <th>Nom</th>
                                 <th>Echéance</th>
                                 <th>Priorité</th>
@@ -168,7 +167,8 @@
                               
                         </tbody>
                     </table>
-                    <button class="sup" id="sup">Supprimer</button>
+                    <!-- Utilisation d'un label explicite pour le bouton de suppression -->
+                    <button class="sup" id="sup" aria-label="Supprimer les tâches sélectionnées">Supprimer</button>
                 </div>
             </div>
         </div>
