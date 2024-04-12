@@ -337,7 +337,10 @@ body {
 }
 .details table thead td {
   font-weight: 600;
+ word-wrap: break-word;
+ max-width: 12px;
 }
+
 .details .recentOrders table tr {
   color: var(--black1);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
@@ -351,6 +354,8 @@ body {
 }
 .details .recentOrders table tr td {
   padding: 10px;
+  max-width:300px;
+  overflow-wrap: break-word;
 }
 .details .recentOrders table tr td:last-child {
   text-align: end;
