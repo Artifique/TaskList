@@ -66,25 +66,7 @@
                     <div>
                         <div class="cardName">Total des taches</div>
                         <div class="number1">
-                            <script>
-                                // Définition de la fonction jQuery
-                                $(document).ready(function(){
-                                    function AccessTask() {
-                                    var sTasks = localStorage.getItem('tasks');
-                                    return sTasks;
-                                  }
-                                    function countTotalTasks() {
-                                      var TotalTasksCount = 0;
-                                      $(".table tbody tr").each(function(){
-                                        TotalTasksCount++;
-                                      });
-                                      return TotalTasksCount;
-                                    }
-                                   
-                                var mesTasks=AccessTask();
-                                  $(".number1").html(countTotalTasks()); 
-                                });
-                              </script>
+                            <span id="totalCount">0</span>
                         </div>
                     </div>
 
@@ -97,28 +79,7 @@
                     <div>
                         <div class="cardName">Taches en cour</div>
                         <div class="number2">
-                            <script>
-                                // Définition de la fonction jQuery
-                                $(document).ready(function(){
-                                    function AccessTask() {
-                                    var sTasks = localStorage.getItem('tasks');
-                                    return sTasks;
-                                  }
-                                  function countEncourTasks() {
-                                 var EncourTasksCount = 0;
-                                 $(".table tbody tr").each(function(){
-                                     var statut = $(this).find('td:eq(4)').text();
-                                     if (statut.trim().toLowerCase() === "en cour") {
-                                       EncourTasksCount++;
-                                     }
-                                 });
-                                 return EncourTasksCount;
-                             }
-                                   
-                                var mesTasks=AccessTask();
-                                  $(".number2").html(countEncourTasks); 
-                                });
-                              </script>
+                            <span id="encourCount">0</span>
                         </div>
                     </div>
 
@@ -137,10 +98,20 @@
                 
                 <div class="formulaire">
                     <form action="#">
-                        <input type="text" id="nom" placeholder="Ajouter une tâche" aria-label="Nom de la tâche">
-                        <input type="date" id="date" aria-label="Date d'échéance">
-                        <input type="text" id="priorite" placeholder="Ajouter une priorité" aria-label="Priorité de la tâche">
-                        <input type="text" id="statut" placeholder="Ajouter un statut" aria-label="Statut de la tâche">
+                        <input type="text" id="nom" placeholder="Ajouter une tâche" aria-label="Nom de la tâche" required>
+                        <input type="date" id="date" aria-label="Date d'échéance" required>
+                        <!-- Utilisation d'un select pour le champ Priorité -->
+                        <select id="priorite" aria-label="Priorité de la tâche" required>
+                            <option value="faible">Faible</option>
+                            <option value="moyenne">Moyenne</option>
+                            <option value="élevée">Élevée</option>
+                        </select>
+        
+                        <!-- Utilisation d'un select pour le champ Statut -->
+                        <select id="statut" aria-label="Statut de la tâche" required>
+                            <option value="En cour">En cour</option>
+                            <option value="Terminé">Terminé</option>
+                        </select>
                         <button class="button" id="ajout" aria-label="Ajouter une tâche">Ajouter</button>
                     </form>
                 </div>
@@ -151,24 +122,24 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Liste des tâches</h2>
-                        <a href="#" class="btn" aria-label="Voir toutes les tâches">Voir tout</a>
                     </div>
-                    <table class="table" >
+                    <table class="table thead" >
                         <thead>
                             <tr>
-                                <th><input type="checkbox" id="select-all" aria-label="Sélectionner toutes les tâches">Tous</th>
+                                <th><input type="checkbox" id="select-all" aria-label="Sélectionner toutes les tâches"></th>
                                 <th>Nom</th>
                                 <th>Echéance</th>
                                 <th>Priorité</th>
                                 <th>Statuts</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
+                    </table>
+                    <table class="table" >
                         <tbody>
                               
                         </tbody>
                     </table>
-                    <!-- Utilisation d'un label explicite pour le bouton de suppression -->
-                    <button class="sup" id="sup" aria-label="Supprimer les tâches sélectionnées">Supprimer</button>
                 </div>
             </div>
         </div>

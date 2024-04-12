@@ -9,20 +9,30 @@ $(document).ready(function(){
       var priorite = $("#priorite").val();
       var statut = $("#statut").val();
 
-      // Ajout d'une nouvelle ligne avec les détails de la tâche
-      $(".table tbody").append(
-          '<tr>' +
-              '<td><input type="checkbox" class="select-elmt"></td>' +
-              '<td>' + name + '</td>' +
-              '<td>' + date + '</td>' +
-              '<td>' + priorite + '</td>' +
-              '<td><span class="status inProgress">'+ statut +'</span></td>' +
-          '</tr>'
-      );
+   // Vérification si tous les champs sont remplis
+   if (name && date && priorite && statut) {
+    // Ajout d'une nouvelle ligne avec les détails de la tâche
+    $(".table tbody").append(
+        '<tr>' +
+            '<td><input type="checkbox" class="select-elmt"></td>' +
+            '<td>' + name + '</td>' +
+            '<td>' + date + '</td>' +
+            '<td>' + priorite + '</td>' +
+            '<td><span class="status inProgress">'+ statut +'</span></td>' +
+            '<td><button class="delete-btn"><ion-icon name="trash-outline"></ion-icon></button></td>' +
+        '</tr>'
+    );
 
-      // Sauvegarde des tâches dans le stockage local
-      saveTasks();
+    // Sauvegarde des tâches dans le stockage local
+    saveTasks();
+    // Mettre à jour les compteurs
+    updateTaskCounters();
+  }
+   else {
+    alert("Veuillez remplir tous les champs avant d'ajouter une tâche.");
+  }
   });
+ 
 
   // Sélection de toutes les checkbox
   $("#select-all").click(function(){
@@ -32,18 +42,15 @@ $(document).ready(function(){
       });
   });
 
-  // Suppression d'une tâche
-  $("#sup").click(function(){
-      $(".table tbody tr").each(function(){
-          var isChecked = $(this).find('input[type="checkbox"]').is(":checked");
-          if(isChecked){
-              $(this).remove();
-          }
-      });
-      // Sauvegarde des tâches dans le stockage local après suppression
-      saveTasks();
-  });
-
+  $(".table").on("click", ".delete-btn", function(){
+    if(confirm("Êtes-vous sûr de vouloir supprimer cette tâche ?")) {
+        $(this).closest("tr").remove();
+        // Sauvegarde des tâches dans le stockage local après suppression
+        saveTasks();
+        // Mettre à jour les compteurs
+        updateTaskCounters();
+    }
+});
   // Fonction pour charger les tâches sauvegardées
   function loadTasks() {
       var savedTasks = localStorage.getItem('tasks');
@@ -57,6 +64,14 @@ $(document).ready(function(){
       var tasksHTML = $(".table tbody").html();
       localStorage.setItem('tasks', tasksHTML);
   }
+  function updateTaskCounters() {
+    var nbTachesEncour = countEncourTasks();
+    var nbTachesTotal = countTotalTasks();
+
+    // Mettre à jour les valeurs des compteurs dans la page HTML
+    $("#encourCount").text(nbTachesEncour);
+    $("#totalCount").text(nbTachesTotal);
+}
 
   // Compter le nombre de tâches en cours
   function countEncourTasks() {
@@ -101,5 +116,8 @@ $(document).ready(function(){
     
       // Sauvegarde des tâches après modification du statut
       saveTasks();
+      // Mettre à jour les compteurs
+      updateTaskCounters();
     });
+    
 });

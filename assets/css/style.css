@@ -272,7 +272,7 @@ body {
   border-radius: 20px;
  
 }
-.formulaire input{
+.formulaire input, select{
   width: 100%;
   height: 40px;
   margin: 2px;
@@ -283,6 +283,7 @@ body {
   border: 1px solid var(--black2);
   margin: 10px;
 }
+
 .button{
   display: block;
   margin: auto;
@@ -303,23 +304,30 @@ body {
   margin-top: 4%;
 }
 .details .recentOrders {
-  position: relative;
-  display: grid;
   min-height: 500px;
+  max-height: 500px;
   background: var(--white);
-  padding: 20px;
+  /* padding: 20px; */
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
+  overflow-y: scroll;
 }
 
-.details .cardHeader {
-  display: flex;
+
+.details .recentOrders .cardHeader {
+  position: sticky;
+  padding: 20px 0px 0px 0px;
+  top: 0px;
+  background: white;
+  /* display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; */
 }
 .cardHeader h2 {
+  /* position: sticky; */
   font-weight: 600;
   color: var(--blue);
+  text-align: center;
 }
 .cardHeader .btn {
   position: relative;
@@ -335,10 +343,18 @@ body {
   border-collapse: collapse;
   margin-top: 10px;
 }
+.thead
+{
+  position: sticky;
+  top: 48px;
+  background: #fff;
+}
 .details table thead td {
-  font-weight: 600;
+font-weight: 600;
  word-wrap: break-word;
  max-width: 12px;
+ left: 0;
+
 }
 
 .details .recentOrders table tr {
@@ -354,7 +370,7 @@ body {
 }
 .details .recentOrders table tr td {
   padding: 10px;
-  max-width:300px;
+  max-width:40px;
   overflow-wrap: break-word;
 }
 .details .recentOrders table tr td:last-child {
@@ -384,6 +400,7 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
+
 /* =================== Fin du style de changement de couleur ====================== */
 .recentCustomers {
   position: relative;
